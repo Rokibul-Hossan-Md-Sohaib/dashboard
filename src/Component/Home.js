@@ -16,19 +16,14 @@ const Home = () => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>instrument</th>
-                        <th>exchanges</th>
-                        <th>tradingsymbol</th>
-                        <th>name</th>
-                        <th>last_price</th>
-                        <th>expiry</th>
-                        <th className="strike">strike</th>
-                        <th className="strike">tick_size</th>
-                        <th>lot_size</th>
-                        <th>instrument_type</th>
-                        <th>segment</th>
-                        <th>exchange</th>
-                        {/* <th>Action</th> */}
+                        <th>Nmae</th>
+                        <th>userName</th>
+                        <th>Phone</th>
+                        <th>email</th>
+                        <th>website</th>
+                        
+                      
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -37,18 +32,30 @@ const Home = () => {
                         user.map(user =>
                             <tr>
                             <td>{user.id}</td>
-                            <td>{user.instrument}</td>
-                            <td>{user.exchanges}</td>
-                            <td>{user.tradingsymbol}</td>
                             <td>{user.name}</td>
-                            <td>{user.last_price}</td>
-                            <td>{user.expiry}</td>
-                            <td className="strike">{user.strike}</td>
-                            <td className="strike">{user.tick_size}</td>
-                            <td>{user.lot_size}</td>
-                            <td>{user.instrument_type}</td>
-                            <td>{user.segment}</td>
-                            <td>{user.exchange}</td>
+                            <td>{user.username}</td>
+                            <td>{user.phone}</td>
+                            <td>{user.email}</td>
+                            <td>{user.website}</td>
+                         <td>
+                         <Link to={"/details/"+user.id}>
+                           <Button className="btn btn-success">
+                                 Details
+                             </Button>
+                           </Link>
+
+                           <Link to={"/edit/"+user.id}>
+                             <Button className="btn btn-primary">
+                                 Edit
+                             </Button>
+                            </Link>
+
+                           <Link to={"/delete/"+user.id}>
+                           <Button className="btn btn-danger">
+                                 Delete
+                             </Button>
+                           </Link>
+                         </td>
                             
                         </tr>
                             )

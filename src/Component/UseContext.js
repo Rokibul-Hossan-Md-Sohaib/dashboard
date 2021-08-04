@@ -1,20 +1,25 @@
 import React, {  createContext, useState } from 'react';
+import { useEffect } from 'react';
 
 
 export const UseContext = createContext()
 
 export const UseProvider = (props) => {
     const [user, setUser] = useState([
-        {
-            id: 1, instrument: "5.41E+08", exchanges: "2111660",
-            tradingsymbol: "EURINR20DEC77.7500CE", name: "EURINR",
-            last_price: "0", expiry: "12/29/2020", strike: "77.75",
-            tick_size: "0.0025", lot_size: "1", instrument_type: "CE",
-            segment: "BCD-OPT", exchange: "BCD"
+        // {
+        //     id: 1, name: "Kuddus", phone: "+9908756",email:"kuddus@gmail.com"
+           
 
-        }
+        // }
       
     ])
+
+    useEffect(() =>{
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(res => res.json())
+        .then(data =>setUser(data))
+
+    } ,[])
     return (
         <UseContext.Provider value={[user, setUser]}>
             {props.children}
