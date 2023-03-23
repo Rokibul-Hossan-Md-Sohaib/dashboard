@@ -12,6 +12,8 @@ import Create from './Component/Create';
 import Delete from './Component/Delete';
 import Details from './Component/Details';
 import Edit from './Component/Edit';
+import Main from './Component/Main';
+import MainCreate from './Component/MainCreate';
 function App() {
   return (
     <div className="App">
@@ -30,8 +32,12 @@ function App() {
             <Route path="/edit/:id">
               <Edit/>
             </Route>
-            <Route path="/">
+            <Route path="/home">
               <Home />
+            </Route>
+        
+            <Route exact path="/">
+            <Home />
             </Route>
            
           </Switch>

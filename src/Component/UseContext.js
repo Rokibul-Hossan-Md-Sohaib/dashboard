@@ -13,6 +13,13 @@ export const UseProvider = (props) => {
         // }
       
     ])
+    // const [product , setProduct] =useState([
+    //         {
+    //         id: 1, userId: 1, title: "Kuddus", 
+           
+
+    //     }
+    // ])
 
     useEffect(() =>{
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -21,7 +28,9 @@ export const UseProvider = (props) => {
 
     } ,[])
     return (
-        <UseContext.Provider value={[user, setUser]}>
+        <UseContext.Provider value={[user, setUser, 
+        // product,setProduct
+        ]}>
             {props.children}
         </UseContext.Provider>
     );

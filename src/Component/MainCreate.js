@@ -4,24 +4,25 @@ import { Link } from 'react-router-dom';
 import {UseContext} from "./UseContext"
 
 
-const Create = () => {
-    const [user, setUser]=useContext(UseContext)
-
+const MainCreate = () => {
+    const [product, setProduct]=useContext(UseContext)
 
     const [id, setId] =useState("")
-    const [name, setName] =useState("")
+    const [userid, setUserId] =useState("")
+    const [title, setTitle] =useState("")
     const [phone, setPhone] =useState("")
     const [email, setEmail] =useState("")
    
-
     const updateid =(e) =>{
         setId(e.target.value)
         console.log(id)
     };
-    const updateName =(e) =>{
-        setName(e.target.value)
+    const updateTitle =(e) =>{
+        setTitle(e.target.value)
     };
- 
+    const updateUserId =(e) =>{
+        setUserId(e.target.value)
+    };
     const updatePhone =(e) =>{
         setPhone(e.target.value)
     };
@@ -30,45 +31,43 @@ const Create = () => {
     };
 
   
-
-
     const addUser =(e) =>{
         e.preventDefault();
-        console.log(user)
-        setUser([...user, {id:id, name:name ,phone:phone,email:email}])
+        console.log(product)
+        setProduct([...product, {id:id, userid:userid ,title:title,email:email}])
     }
   
     return (
         <div>
             <Form onSubmit={addUser}>
               
-                <Form.Group controlId="formGroupEmail">
-                    <Form.Label>id</Form.Label>
-                    <Form.Control  type="text"
-                    name="id"
-                    value={id}
-                    onChange={updateid} 
-                    placeholder="Enter please" />
-                </Form.Group>
-
+            
                 <Form.Group controlId="formGroupPassword">
                     <Form.Label>name</Form.Label>
                     <Form.Control 
                     type="text"
                     name="name"
-                    value={name}
-                    onChange={updateName} 
+                    value={userid}
+                    onChange={updateUserId} 
                     placeholder="Enter please" />
                 </Form.Group>
 
-           
-
+                <Form.Group controlId="formGroupPassword">
+                    <Form.Label>username</Form.Label>
+                    <Form.Control 
+                    type="text"
+                    name="name"
+                    value={title}
+                    onChange={updateTitle} 
+                    placeholder="Enter please" />
+                </Form.Group>
+{/* 
                 <Form.Group controlId="formGroupEmail">
                     <Form.Label>phone</Form.Label>
                     <Form.Control  
                     type="text"
                     name="phone"
-                    value={phone}
+                    value={name}
                     onChange={updatePhone} 
                     placeholder="Enter please" />
                 </Form.Group>
@@ -77,10 +76,10 @@ const Create = () => {
                     <Form.Control  
                     type="text"
                     name="email"
-                    value={email}
+                    value={name}
                     onChange={updateEmail} 
                     placeholder="Enter please" />
-                </Form.Group>
+                </Form.Group> */}
 
         <Button className="action_btn" variant="primary"
                  type="submit" >
@@ -98,4 +97,4 @@ const Create = () => {
     );
 };
 
-export default Create;
+export default MainCreate;

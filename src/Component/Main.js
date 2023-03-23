@@ -4,23 +4,23 @@ import {UseContext} from "./UseContext"
 import {  Link} from "react-router-dom";
 import "./Home.css"
 
-const Home = () => {
+const Main = () => {
    
-    const [user, setUser]=useContext(UseContext)
-    console.log(user)
+    const [product, setProduct]=useContext(UseContext)
+    console.log(product)
     return (
         <div>
-            <Link to="/create">
+            <Link to="/mCreate">
             <Button variant="primary">Create User</Button></Link>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Nmae</th>
-                     
+                        <th>userName</th>
                         <th>Phone</th>
                         <th>email</th>
-                     
+                        <th>website</th>
                         
                       
                         
@@ -29,21 +29,17 @@ const Home = () => {
                 <tbody>
 
                     {
-                        user.map(user =>
+                        product.map(user =>
                             <tr>
-                            <td>{user.id}</td>
+                  <Link to="/home">
+                  <td>{user.id}</td>
                             <td>{user.name}</td>
-                           
-                            <td>{user.phone}</td>
-                            <td>{user.email}</td>
-                        
+                            <td>{user.username}</td>
+                    
+                  </Link>
                          <td>
-                         <Link to={"/details/"+user.id}>
-                           <Button className="btn btn-success">
-                                 Details
-                             </Button>
-                           </Link>
-
+        
+                        
                            <Link to={"/edit/"+user.id}>
                              <Button className="btn btn-primary">
                                  Edit
@@ -68,4 +64,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Main;
